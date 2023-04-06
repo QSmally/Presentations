@@ -1,0 +1,14 @@
+
+version: "3"
+
+services:
+  # presentation
+  #   Server for hosting the main keynote provider.
+  presentation:
+    restart: always
+    build: .
+    container_name: presentation
+    ports:
+      - 8000:8000
+    volumes:
+      - "./Slides:/Slides:rw"
