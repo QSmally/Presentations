@@ -13,3 +13,15 @@ services:
     volumes:
       - "./Shared:/Content:rw"
       - "./Slides:/Content/Slides:ro"
+
+  # autoindex
+  #   An instance to monitor input changes and write to the index file.
+  autoindex:
+    restart: always
+    build: ./I-Notify
+    container_name: autoindex
+    volumes:
+      - "./Slides:/watch:ro"
+      - "./I-Notify:/tools:rw"
+      - "./Shared/index.qmd:/output.qmd:rw"
+    entrypoint: /tools/Make.sh

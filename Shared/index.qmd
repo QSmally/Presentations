@@ -1,4 +1,2 @@
 {{< include Slides/00-Introduction.qmd >}}
-::: {.notes}
-1680895255
-:::
+<!-- 1680895873 -->

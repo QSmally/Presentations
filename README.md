@@ -12,9 +12,13 @@ with `docker-compose.yml`.
 
 ## Usage
 
+Presentation server can be run like so:
+
 ```bash
 $ docker compose up [--detached --build --remove-orphans]
 ```
+
+It'll be viewable at `localhost:8000`.
 
 ## Notes
 
