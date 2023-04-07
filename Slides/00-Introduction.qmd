@@ -1,0 +1,12 @@
+---
+title: "Presentation test"
+subtitle: "© Joey Smalen"
+---
+
+# Foo
+
+A slide subtitle
+
+::: {.footer}
+Content as footer
+:::

@@ -1,0 +1,16 @@
+
+project:
+  title: "Presentation"
+  output-dir: _output
+  render:
+    - index.qmd
+  preview:
+    timeout: 0
+
+format:
+  revealjs:
+    menu: false
+    theme: night
+    transition: slide
+    navigation-mode: grid
+    controls-layout: bottom-right

@@ -7,9 +7,10 @@ RUN git clone https://github.com/quarto-dev/quarto-cli.git && \
     python3 -m pip install jupyter matplotlib plotly && \
     ./configure.sh
 
-VOLUME /Slides
+VOLUME /Content
+VOLUME /Content/Slides
 EXPOSE 8000
 
-CMD ["quarto", "preview", "/Slides", \
+CMD ["quarto", "preview", "/Content", \
     "--port", "8000", "--host", "0.0.0.0", \
     "--no-browser"]

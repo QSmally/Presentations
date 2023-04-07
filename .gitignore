@@ -5,3 +5,8 @@
 # File editor
 Session.vim
 *.swp
+
+# Generated volume
+Shared/*
+!Shared/index.qmd
+!Shared/_quarto.yml

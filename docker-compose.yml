@@ -11,4 +11,5 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - "./Slides:/Slides:rw"
+      - "./Shared:/Content:rw"
+      - "./Slides:/Content/Slides:ro"
