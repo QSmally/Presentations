@@ -13,6 +13,7 @@ services:
     volumes:
       - "./Shared:/Content:rw"
       - "./Slides:/Content/Slides:ro"
+      - "./Images:/Content/Images:ro"
 
   # autoindex
   #   An instance to monitor input changes and write to the index file.

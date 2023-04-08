@@ -1,0 +1,24 @@
+
+h2,
+.middle {
+    text-align: center;
+}
+
+.reveal .slide-logo,
+.reveal .slide-number a {
+    display: block;
+    position: fixed;
+    top: unset !important;
+}
+
+.reveal .slide-logo {
+    right: unset !important;
+    bottom: 6px;
+    left: 12px;
+}
+
+.reveal .slide-number a {
+    left: unset !important;
+    bottom: 6px;
+    right: 12px;
+}

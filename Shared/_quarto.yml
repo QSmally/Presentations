@@ -1,16 +1,23 @@
 
 project:
-  title: "Presentation"
   output-dir: _output
   render:
     - index.qmd
-  preview:
-    timeout: 0
+css: _style.css
 
-format:
-  revealjs:
-    menu: false
-    theme: night
-    transition: slide
-    navigation-mode: grid
-    controls-layout: bottom-right
+format: revealjs
+title: "Presentation"
+controls-layout: bottom-right
+navigation-mode: grid
+menu: false
+view-distance: 3
+
+# Table of contents
+# toc: true
+# toc-depth: 1
+
+# Theme
+theme: night
+logo: Images/Kermit.jpg
+slide-number: h.v
+transition: slide

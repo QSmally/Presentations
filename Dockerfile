@@ -12,5 +12,5 @@ VOLUME /Content/Slides
 EXPOSE 8000
 
 CMD ["quarto", "preview", "/Content", \
-    "--port", "8000", "--host", "0.0.0.0", \
+    "--port", "8000", "--host", "0.0.0.0", "--timeout", "0", \
     "--no-browser"]
