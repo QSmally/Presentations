@@ -14,6 +14,9 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-ls -1 "$1" | \
+shopt -s nullglob
+cd "$1"
+
+ls -1 *.{md,qmd} | \
     sort | \
     sed 's/\(.*\)/{{< include Slides\/\1 >}}/'

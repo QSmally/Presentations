@@ -6,15 +6,21 @@
 # Command usage:
 #   Make.sh
 #
-# Files:
+# Mounted volumes:
 #   /watch
-#   /output.qmd
+#   /index.qmd
+#   /project.yml
 #
 
 generate() {
-    /tools/Generate.sh /watch > /output.qmd
-    echo "<!-- $(date +%s) -->" >> /output.qmd
-    echo "Generated new file index based on $(ls /watch | wc -l) files"
+    /tools/Generate.sh /watch > /index.qmd
+    echo "<!-- $(date +%s) -->" >> /index.qmd
+
+    if [ -e /watch/Presentation.yml ]; then
+        cat /tools/Template.yml /watch/Presentation.yml > /project.yml
+    fi
+
+    echo "Generated new configuration based on $(ls /watch | wc -l) files"
 }
 
 generate
@@ -22,5 +28,5 @@ generate
 inotifywait /watch -e create -e delete -e modify -mq --format '%:e %f' |
     while read -r MESSAGE; do
         echo $MESSAGE
-        [[ $MESSAGE == *.qmd ]] && generate
+        [[ $MESSAGE =~ .*\.(md|qmd|yml) ]] && generate
     done

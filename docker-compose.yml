@@ -24,5 +24,6 @@ services:
     volumes:
       - "./Slides:/watch:ro"
       - "./I-Notify:/tools:rw"
-      - "./Shared/index.qmd:/output.qmd:rw"
+      - "./Shared/index.qmd:/index.qmd:rw"
+      - "./Shared/_quarto.yml:/project.yml:rw"
     entrypoint: /tools/Make.sh

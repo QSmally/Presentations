@@ -1,0 +1,14 @@
+
+controls-layout: bottom-right
+navigation-mode: grid
+menu: false
+
+# Table of contents
+# toc: true
+# toc-depth: 1
+
+# Theme
+theme: night
+logo: Images/Kermit.jpg
+slide-number: h.v
+transition: slide
