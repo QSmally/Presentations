@@ -1,6 +1,6 @@
 
 controls-layout: bottom-right
-navigation-mode: grid
+navigation-mode: vertical
 menu: false
 
 # Table of contents
@@ -12,3 +12,4 @@ theme: night
 logo: Images/Kermit.jpg
 slide-number: h.v
 transition: slide
+background-transition: fade

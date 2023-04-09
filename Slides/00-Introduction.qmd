@@ -1,12 +1,13 @@
 ---
-title: "Presentation test"
+title: "Presentation title"
 subtitle: "© Joey Smalen"
 ---
 
-# Foo
+# Hello world
 
-A slide subtitle
+`Presentations` automatically adds multi-file capability to [Quarto](https://quarto.org/)
+and brings it to Docker.
 
-::: {.footer}
-Content as footer
-:::
+## Seamless experience {.center .middle}
+
+Automatically updates using `autoindex` when files are added, deleted or written to.

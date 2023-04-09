@@ -1,0 +1,25 @@
+
+# Fully featured
+
+## Scientific Markdown {.center}
+
+::: {.incremental}
+* An incremental bullet-point list
+* `Pandoc` provides these parsings
+* Markdown is **nice**
+:::
+
+::: {.footer}
+Easily add styled components to your slides
+:::
+
+## Showcase blocks {.center}
+
+```{.javascript code-line-numbers="1|1-2"}
+const std = @import("std");
+std.debug.print("Try viewing notes with pressing 's'!");
+```
+
+::: {.notes}
+Found the hidden note!
+:::

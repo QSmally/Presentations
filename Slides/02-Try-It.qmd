@@ -1,0 +1,4 @@
+
+# Try it yourself {background-color="#31364c"}
+
+Modify `Slides/` and experiment with the `Presentation.yml` configuration.

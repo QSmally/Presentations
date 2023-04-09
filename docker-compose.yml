@@ -22,8 +22,8 @@ services:
     build: ./I-Notify
     container_name: autoindex
     volumes:
+      - "./I-Notify:/tools:ro"
       - "./Slides:/watch:ro"
-      - "./I-Notify:/tools:rw"
       - "./Shared/index.qmd:/index.qmd:rw"
       - "./Shared/_quarto.yml:/project.yml:rw"
     entrypoint: /tools/Make.sh
