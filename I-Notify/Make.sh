@@ -27,6 +27,7 @@ generate
 
 inotifywait /watch -e create -e delete -e modify -mq --format '%:e %f' |
     while read -r MESSAGE; do
-        echo $MESSAGE
-        [[ $MESSAGE =~ .*\.(md|qmd|yml) ]] && generate
+        echo "File $MESSAGE"
+        echo "Skipping $(timeout 1 cat | wc -l) further changes to debounce filesystem events"
+        [[ $MESSAGE =~ .*\.(md|qmd|yml|css)$ ]] && generate
     done
