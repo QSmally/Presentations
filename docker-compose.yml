@@ -8,10 +8,12 @@ services:
     restart: always
     build: .
     container_name: presentation
+    depends_on:
+      - autoindex
     ports:
       - 8000:8000
     volumes:
-      - "./Shared:/Content:rw"
+      - "outcache:/Content:rw"
       - "./Slides:/Content/Slides:ro"
       - "./Images:/Content/Images:ro"
 
@@ -22,8 +24,15 @@ services:
     build: ./I-Notify
     container_name: autoindex
     volumes:
+      - "outcache:/output:rw"
       - "./I-Notify:/tools:ro"
+      - "./Shared:/defaults:ro"
       - "./Slides:/watch:ro"
-      - "./Shared/index.qmd:/index.qmd:rw"
-      - "./Shared/_quarto.yml:/project.yml:rw"
     entrypoint: /tools/Make.sh
+
+volumes:
+  # outcache
+  #   A shared volume for keeping autoindex-generated files alive, whilst also
+  #   parsing and serving that content on a port from the 'presentation'
+  #   container.
+  outcache:

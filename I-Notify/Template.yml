@@ -1,9 +1,0 @@
-
-project:
-  output-dir: _output
-  render:
-    - index.qmd
-css: _style.css
-format: revealjs
-title: "Presentation"
-view-distance: 3

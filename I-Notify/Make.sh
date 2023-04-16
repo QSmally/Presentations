@@ -7,17 +7,21 @@
 #   Make.sh
 #
 # Mounted volumes:
+#   /output
+#   /tools
+#   /defaults
 #   /watch
-#   /index.qmd
-#   /project.yml
 #
 
 generate() {
-    /tools/Generate.sh /watch > /index.qmd
-    echo "<!-- $(date +%s) -->" >> /index.qmd
+    /tools/Generate.sh /watch > /output/index.qmd
+    echo "<!-- $(date +%s) -->" >> /output/index.qmd
+    cp /defaults/Styling.css /output/style.css
 
     if [ -e /watch/Presentation.yml ]; then
-        cat /tools/Template.yml /watch/Presentation.yml > /project.yml
+        cat /defaults/Defaults.yml /watch/Presentation.yml > /output/_quarto.yml
+    else
+        cp /defaults/Defaults.yml /output/_quarto.yml
     fi
 
     echo "Generated new configuration based on $(ls /watch | wc -l) files"
@@ -25,7 +29,7 @@ generate() {
 
 generate
 
-inotifywait /watch -e create -e delete -e modify -mq --format '%:e %f' |
+inotifywait /defaults /watch -e create -e delete -e modify -mq --format '%f' |
     while read -r MESSAGE; do
         echo "File $MESSAGE"
         echo "Skipping $(timeout 1 cat | wc -l) further changes to debounce filesystem events"
