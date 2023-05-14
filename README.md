@@ -12,15 +12,16 @@ with `docker-compose.yml`.
 
 ## Usage
 
-Presentation server can be run like so:
+For standalone usage, the presentation server can be ran like so:
 
 ```bash
 $ docker compose up [--detached --build --remove-orphans]
 ```
 
-It'll be viewable at `localhost:8000`.
+It'll be viewable at `localhost:8000` by default.
 
 ## Notes
 
 * Slides are sorted by their name, so a `00-` prefix convention may be necessary;
-* Container `autoindex` is necessary to automatically generate an index on start/update.
+* Container `autoindex` is necessary to automatically generate an index on start/update;
+* Style settings (like website type) may be modified in `Shared/Defaults.yml`.
