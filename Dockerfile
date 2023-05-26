@@ -1,7 +1,9 @@
 
 FROM python:3.8
 
-RUN git clone https://github.com/quarto-dev/quarto-cli.git && \
+ARG TAG=v1.3.340
+
+RUN git clone --depth 1 --branch $TAG https://github.com/quarto-dev/quarto-cli.git && \
     mv quarto-cli /Service && \
     cd /Service && \
     python3 -m pip install jupyter matplotlib plotly && \

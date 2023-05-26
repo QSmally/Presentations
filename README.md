@@ -18,7 +18,12 @@ For standalone usage, the presentation server can be ran like so:
 $ docker compose up [--detached --build --remove-orphans]
 ```
 
-It'll be viewable at `localhost:8000` by default.
+It'll be viewable at `localhost:8000` by default. To build a custom version of Quarto, a build-arg
+may be provided when building the compose service:
+
+```bash
+$ docker compose build presentation --build-arg TAG=<version>
+```
 
 ## Notes
 
