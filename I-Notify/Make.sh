@@ -4,34 +4,24 @@
 # © 2023 Joey Smalen ("Smally", "QSmally")
 #
 # Command usage:
-#   Make.sh
+#   Make.sh <output> <defaults> <target>
 #
-# Mounted volumes:
-#   /output
-#   /tools
-#   /defaults
-#   /watch
+# <output>:   an output directory.
+# <defaults>: files containing a CSS and YAML file.
+# <target>:   forwarded directory to the generation script.
 #
 
-generate() {
-    /tools/Generate.sh /watch > /output/index.qmd
-    echo "<!-- $(date +%s) -->" >> /output/index.qmd
-    cp /defaults/Styling.css /output/style.css
+if [ $# -ne 3 ]; then
+    echo "error: amount of arguments must be exactly 3, was given $#"
+    exit 1
+fi
 
-    if [ -e /watch/Presentation.yml ]; then
-        cat /defaults/Defaults.yml /watch/Presentation.yml > /output/_quarto.yml
-    else
-        cp /defaults/Defaults.yml /output/_quarto.yml
-    fi
+"$(dirname $0)"/Generate.sh "$3" > "$1"/index.qmd
+echo "<!-- $(date +%s) -->" >> "$1"/index.qmd
+cp "$2"/Styling.css "$1"/style.css
 
-    echo "Generated new configuration based on $(ls /watch | wc -l) files"
-}
-
-generate
-
-inotifywait /defaults /watch -e create -e delete -e modify -mq --format '%f' |
-    while read -r MESSAGE; do
-        echo "File $MESSAGE"
-        echo "Skipping $(timeout 1 cat | wc -l) further changes to debounce filesystem events"
-        [[ $MESSAGE =~ .*\.(md|qmd|yml|css)$ ]] && generate
-    done
+if [ -e "$3"/Presentation.yml ]; then
+    cat "$2"/Defaults.yml "$3"/Presentation.yml > "$1"/_quarto.yml
+else
+    cp "$2"/Defaults.yml "$1"/_quarto.yml
+fi

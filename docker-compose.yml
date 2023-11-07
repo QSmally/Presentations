@@ -28,7 +28,7 @@ services:
       - "./I-Notify:/tools:ro"
       - "./Shared:/defaults:ro"
       - "./Slides:/watch:ro"
-    entrypoint: /tools/Make.sh
+    entrypoint: /tools/I-Notify.sh
 
 volumes:
   # outcache
