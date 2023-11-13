@@ -10,6 +10,9 @@ like a volume so any changes are immediately reflected on the server with the `a
 Supports the [service autoproxy](https://github.com/QSmally/Service-Autoproxy), or standalone usage
 with `docker-compose.yml`.
 
+In order to perform commands on the slides (for instance, to run `quarto render --to revealjs`), a
+normalisation script is provided to combine the different file sources as a single-shot.
+
 ## Usage
 
 For standalone usage, the presentation server can be ran like so:
