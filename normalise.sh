@@ -4,18 +4,24 @@
 # © 2023 Joey Smalen ("Smally", "QSmally")
 #
 # Command usage:
-#   normalise.sh
+#   normalise.sh [directory]
 #
 # Note:
-#   This script requires a strict environment to work in, and must really only
-#   be seen as a template or example.
+#   This script requires a strict dependency on Shared and Slides directories,
+#   as well as an Images directory which is symlinked.
 #
 
-mkdir -p Normalised
-ln -sfw ../Slides/ Normalised/
-ln -sfw ../Images/ Normalised/
+outdirectory="${1:-Normalsed}"
+
+set -e
+
+mkdir -p $outdirectory
+
+basedirectory="$(cd "$(dirname "$0")"; pwd)"
+ln -sfw $basedirectory/Slides/ $outdirectory/
+ln -sfw $basedirectory/Images/ $outdirectory/
 
 "$(dirname $0)"/I-Notify/Make.sh \
-    Normalised \
+    $outdirectory \
     Shared \
     Slides
