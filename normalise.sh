@@ -11,7 +11,7 @@
 #   as well as an Images directory which is symlinked.
 #
 
-outdirectory="${1:-Normalsed}"
+outdirectory="${1:-Normalised}"
 
 set -e
 
