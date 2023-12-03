@@ -8,7 +8,8 @@
 #
 # Note:
 #   This script requires a strict dependency on Shared and Slides directories,
-#   as well as an Images directory which is symlinked.
+#   as well as an Images directory which is symlinked. Please consider using the
+#   'embed.sh' script.
 #
 
 outdirectory="${1:-Normalised}"
