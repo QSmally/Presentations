@@ -15,13 +15,13 @@ outdirectory="${1:-Normalised}"
 
 set -e
 
-mkdir -p $outdirectory
+mkdir -p "$outdirectory"
 
 basedirectory="$(cd "$(dirname "$0")"; pwd)"
-ln -sfw $basedirectory/Slides/ $outdirectory/
-ln -sfw $basedirectory/Images/ $outdirectory/
+ln -sfw "$basedirectory/Slides/" "$outdirectory/"
+ln -sfw "$basedirectory/Images/" "$outdirectory/"
 
 "$(dirname $0)"/I-Notify/Make.sh \
-    $outdirectory \
+    "$outdirectory" \
     Shared \
     Slides
